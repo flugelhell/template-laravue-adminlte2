@@ -1,0 +1,7 @@
+laravel new project-name
+cd project-name
+npm install
+npm install vuex --save
+npm install vue-router
+npm i vue bootstrap-vue bootstrap
+npm install axios
