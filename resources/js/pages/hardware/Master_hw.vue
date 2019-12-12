@@ -289,7 +289,13 @@
 </template>
 
 <script>
-export default {};
+import { handlePage } from "../../mixins/handlePage.js"; // import mixin
+export default {
+  mixins: [handlePage], // register mixin
+  mounted() {
+    this.maxheight();
+  }
+};
 </script>
 
 

@@ -1888,6 +1888,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "app-sidebar": _components_Sidebar_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     "app-footer": _components_Footer_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "app-control-sidebar": _components_ControlSidebar_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  watch: {
+    $route: function $route(to, from) {}
+  },
+  mounted: function mounted() {
+    Pace.start();
   }
 });
 
@@ -2134,6 +2140,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -3000,7 +3010,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: {
+    subIsActive: function subIsActive() {//tes
+    }
+  }
+});
 
 /***/ }),
 
@@ -3030,6 +3045,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_handlePage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/handlePage.js */ "./resources/js/mixins/handlePage.js");
 //
 //
 //
@@ -3060,18 +3076,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+ // import mixin
 // Vue
-/* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    autoheight: function autoheight() {
-      var sb = document.getElementsByClassName("sidebar");
-      var cw = document.getElementsByClassName("content-wrapper"); // console.log(cw[0]);
 
-      cw[0].setAttribute("style", "min-height:" + sb[0].clientHeight + "px;");
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_handlePage_js__WEBPACK_IMPORTED_MODULE_0__["handlePage"]],
+  // register mixin
+  methods: {},
   mounted: function mounted() {
-    this.autoheight();
+    this.maxheight(); // $(".sidebar-menu > li.treeview.active").removeClass("active");
+    // .parent()
+    // .closest("li")
+    // .removeClass("menu-open");
   }
 });
 
@@ -3086,6 +3102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_handlePage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/handlePage.js */ "./resources/js/mixins/handlePage.js");
 //
 //
 //
@@ -3726,7 +3743,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+ // import mixin
 // Vue
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var lib = document.createElement("script");
@@ -3873,6 +3892,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_handlePage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/handlePage.js */ "./resources/js/mixins/handlePage.js");
 //
 //
 //
@@ -4163,7 +4183,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+ // import mixin
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_handlePage_js__WEBPACK_IMPORTED_MODULE_0__["handlePage"]],
+  // register mixin
+  mounted: function mounted() {
+    this.maxheight();
+  }
+});
 
 /***/ }),
 
@@ -5868,7 +5896,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "img-circle",
                     attrs: {
-                      src: "templates/dist/img/user2-160x160.jpg",
+                      src: "/templates/dist/img/user2-160x160.jpg",
                       alt: "User Image"
                     }
                   })
@@ -5894,7 +5922,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "img-circle",
                     attrs: {
-                      src: "templates/dist/img/user3-128x128.jpg",
+                      src: "/templates/dist/img/user3-128x128.jpg",
                       alt: "User Image"
                     }
                   })
@@ -5920,7 +5948,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "img-circle",
                     attrs: {
-                      src: "templates/dist/img/user4-128x128.jpg",
+                      src: "/templates/dist/img/user4-128x128.jpg",
                       alt: "User Image"
                     }
                   })
@@ -5946,7 +5974,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "img-circle",
                     attrs: {
-                      src: "templates/dist/img/user3-128x128.jpg",
+                      src: "/templates/dist/img/user3-128x128.jpg",
                       alt: "User Image"
                     }
                   })
@@ -5972,7 +6000,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "img-circle",
                     attrs: {
-                      src: "templates/dist/img/user4-128x128.jpg",
+                      src: "/templates/dist/img/user4-128x128.jpg",
                       alt: "User Image"
                     }
                   })
@@ -6243,7 +6271,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "user-image",
           attrs: {
-            src: "templates/dist/img/user2-160x160.jpg",
+            src: "/templates/dist/img/user2-160x160.jpg",
             alt: "User Image"
           }
         }),
@@ -6260,7 +6288,7 @@ var staticRenderFns = [
       _c("img", {
         staticClass: "img-circle",
         attrs: {
-          src: "templates/dist/img/user2-160x160.jpg",
+          src: "/templates/dist/img/user2-160x160.jpg",
           alt: "User Image"
         }
       }),
@@ -6374,7 +6402,7 @@ var render = function() {
                     attrs: {
                       tag: "li",
                       "active-class": "active",
-                      to: "/master-hw",
+                      to: { name: "master_hw" },
                       exact: ""
                     }
                   },
@@ -6390,9 +6418,40 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(3),
                 _vm._v(" "),
-                _vm._m(4),
+                _c("li", { staticClass: "treeview" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "treeview-menu" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            tag: "li",
+                            "active-class": "active",
+                            to: "/tes",
+                            exact: ""
+                          }
+                        },
+                        [
+                          _c("a", [
+                            _c("i", { staticClass: "far fa-circle" }),
+                            _vm._v(" tes2\n                ")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6)
+                    ],
+                    1
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(5)
+                _vm._m(7)
               ],
               1
             )
@@ -6416,10 +6475,6 @@ var render = function() {
               ])
             ]
           ),
-          _vm._v(" "),
-          _vm._m(6),
-          _vm._v(" "),
-          _vm._m(7),
           _vm._v(" "),
           _vm._m(8),
           _vm._v(" "),
@@ -6445,13 +6500,17 @@ var render = function() {
           _vm._v(" "),
           _vm._m(19),
           _vm._v(" "),
-          _c("li", { staticClass: "header" }, [_vm._v("LABELS")]),
-          _vm._v(" "),
           _vm._m(20),
           _vm._v(" "),
           _vm._m(21),
           _vm._v(" "),
-          _vm._m(22)
+          _c("li", { staticClass: "header" }, [_vm._v("LABELS")]),
+          _vm._v(" "),
+          _vm._m(22),
+          _vm._v(" "),
+          _vm._m(23),
+          _vm._v(" "),
+          _vm._m(24)
         ],
         1
       )
@@ -6468,7 +6527,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "img-circle",
           attrs: {
-            src: "templates/dist/img/user2-160x160.jpg",
+            src: "/templates/dist/img/user2-160x160.jpg",
             alt: "User Image"
           }
         })
@@ -6524,10 +6583,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "far fa-circle" }),
+      _vm._v("Network\n              "),
+      _c("span", { staticClass: "pull-right-container" }, [
+        _c("i", { staticClass: "fas fa-angle-left pull-right" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", { staticClass: "far fa-circle" }),
+        _vm._v(" Level Two\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "treeview" }, [
       _c("a", { attrs: { href: "#" } }, [
         _c("i", { staticClass: "far fa-circle" }),
-        _vm._v("Network\n              "),
+        _vm._v(" Level Two\n                  "),
         _c("span", { staticClass: "pull-right-container" }, [
           _c("i", { staticClass: "fas fa-angle-left pull-right" })
         ])
@@ -6537,21 +6619,28 @@ var staticRenderFns = [
         _c("li", [
           _c("a", { attrs: { href: "/" } }, [
             _c("i", { staticClass: "far fa-circle" }),
-            _vm._v(" tes2\n                ")
+            _vm._v(" tes3\n                    ")
           ])
         ]),
         _vm._v(" "),
         _c("li", [
           _c("a", { attrs: { href: "#" } }, [
             _c("i", { staticClass: "far fa-circle" }),
-            _vm._v(" Level Two\n                ")
+            _vm._v(" Level Three\n                    ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "far fa-circle" }),
+            _vm._v(" Level Three\n                    ")
           ])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "treeview" }, [
           _c("a", { attrs: { href: "#" } }, [
             _c("i", { staticClass: "far fa-circle" }),
-            _vm._v(" Level Two\n                  "),
+            _vm._v(" Level Three\n                      "),
             _c("span", { staticClass: "pull-right-container" }, [
               _c("i", { staticClass: "fas fa-angle-left pull-right" })
             ])
@@ -6561,40 +6650,7 @@ var staticRenderFns = [
             _c("li", [
               _c("a", { attrs: { href: "/" } }, [
                 _c("i", { staticClass: "far fa-circle" }),
-                _vm._v(" tes3\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "far fa-circle" }),
-                _vm._v(" Level Three\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "far fa-circle" }),
-                _vm._v(" Level Three\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "treeview" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "far fa-circle" }),
-                _vm._v(" Level Three\n                      "),
-                _c("span", { staticClass: "pull-right-container" }, [
-                  _c("i", { staticClass: "fas fa-angle-left pull-right" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "treeview-menu" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "/" } }, [
-                    _c("i", { staticClass: "far fa-circle" }),
-                    _vm._v(" tes4\n                        ")
-                  ])
-                ])
+                _vm._v(" tes4\n                        ")
               ])
             ])
           ])
@@ -25460,6 +25516,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/mixins/handlePage.js":
+/*!*******************************************!*\
+  !*** ./resources/js/mixins/handlePage.js ***!
+  \*******************************************/
+/*! exports provided: handlePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handlePage", function() { return handlePage; });
+// handlePage (mixin)
+var handlePage = {
+  created: function created() {// some code
+  },
+  data: function data() {
+    return {// some data
+    };
+  },
+  methods: {
+    maxheight: function maxheight() {
+      var sb = document.getElementsByClassName("sidebar");
+      var cw = document.getElementsByClassName("content-wrapper"); // console.log(cw[0]);
+
+      cw[0].setAttribute("style", "min-height:" + sb[0].clientHeight + "px;");
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/pages/404.vue":
 /*!************************************!*\
   !*** ./resources/js/pages/404.vue ***!
@@ -25851,6 +25937,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); //DEFINE ROUTE
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -25882,9 +25969,16 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       requiresAuth: true
     }
   }, {
-    path: '/master-hw',
+    path: '/inventory/master-hw',
     name: 'master_hw',
     component: _pages_hardware_Master_hw_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    meta: {
+      requiresAuth: true
+    }
+  }, {
+    path: '/tes',
+    name: 'tes',
+    component: _pages_About_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     meta: {
       requiresAuth: true
     }

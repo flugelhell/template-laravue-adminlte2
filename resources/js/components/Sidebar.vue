@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="templates/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+          <img src="/templates/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -43,7 +43,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <router-link tag="li" active-class="active" to="/master-hw" exact>
+            <router-link tag="li" active-class="active" :to="{name:'master_hw'}" exact>
               <a>
                 <i class="far fa-circle"></i>Hardware
               </a>
@@ -66,11 +66,11 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li>
-                  <a href="/">
+                <router-link tag="li" active-class="active" to="/tes" exact>
+                  <a>
                     <i class="far fa-circle"></i> tes2
                   </a>
-                </li>
+                </router-link>
                 <li>
                   <a href="#">
                     <i class="far fa-circle"></i> Level Two
@@ -507,5 +507,11 @@
   </aside>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    subIsActive() {
+      //tes
+    }
+  }
+};
 </script>

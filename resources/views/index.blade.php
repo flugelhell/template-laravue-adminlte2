@@ -12,7 +12,7 @@
   <!-- Bootstrap 4.3.1 Utilities -->
   <link rel="stylesheet" href="{{ asset ('templates/mod/css/bootstrap4/bootstrap.min.css') }}">
   <!-- Font Awesome -->
-  {{-- <link rel="stylesheet" href="{{ asset ('templates/bower_components/font-awesome/css/font-awesome.min.css') }}"> --}}
+  <!-- <link rel="stylesheet" href="{{ asset ('templates/bower_components/font-awesome/css/font-awesome.min.css') }}"> -->
   <!-- Font Awesome 5 -->
   <link rel="stylesheet" href="{{ asset ('templates/bower_components/fontawesome5/css/all.min.css') }}">
   <!-- Ionicons -->
@@ -23,9 +23,9 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset ('templates/dist/css/skins/_all-skins.min.css') }}">
   <!-- Morris chart -->
-  {{-- <link rel="stylesheet" href="{{ asset ('templates/bower_components/morris.js/morris.css') }}"> --}}
+  <!-- <link rel="stylesheet" href="{{ asset ('templates/bower_components/morris.js/morris.css') }}"> -->
   <!-- jvectormap -->
-  {{-- <link rel="stylesheet" href="{{ asset ('templates/bower_components/jvectormap/jquery-jvectormap.css') }}"> --}}
+  <!-- <link rel="stylesheet" href="{{ asset ('templates/bower_components/jvectormap/jquery-jvectormap.css') }}"> -->
   <!-- Date Picker -->
   <link rel="stylesheet" href="{{ asset ('templates/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
   <!-- Daterange picker -->
@@ -38,6 +38,9 @@
   <!-- Custom style -->
   <link rel="stylesheet" href="{{ asset ('css/app.css') }}">
 
+  {{-- Pace --}}
+  <link rel="stylesheet" href="{{ asset ('templates/bower_components/pace/themes/green/pace-theme-flat-top.css') }}"/>
+  <script src="{{ asset ('templates/bower_components/pace/pace.min.js') }}"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,6 +68,8 @@
   </script>
   <!-- Bootstrap 3.3.7 -->
   <script src="{{ asset ('templates/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+  <!-- PACE -->
+  <script src="{{ asset ('templates/bower_components/PACE/pace.min.js') }}"></script>
   <!-- Morris.js charts -->
   <script src="{{ asset ('templates/bower_components/raphael/raphael.min.js') }}"></script>
   <script src="{{ asset ('templates/bower_components/morris.js/morris.min.js') }}"></script>
@@ -88,9 +93,10 @@
   <script src="{{ asset ('templates/bower_components/fastclick/lib/fastclick.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset ('templates/dist/js/adminlte.min.js') }}"></script>
+  <!-- Vue -->
+  <script src="{{ asset('js/app.js') }}"></script>
   <!-- Mod Navigation Behavior -->
   <script src="{{ asset ('templates/mod/js/nav.js') }}"></script>
-  <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

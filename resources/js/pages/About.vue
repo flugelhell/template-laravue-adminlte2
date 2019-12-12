@@ -29,18 +29,17 @@
   <!-- /.content-wrapper -->
 </template>
 <script>
+import { handlePage } from "../mixins/handlePage.js"; // import mixin
 // Vue
 export default {
-  methods: {
-    autoheight: () => {
-      let sb = document.getElementsByClassName("sidebar");
-      let cw = document.getElementsByClassName("content-wrapper");
-      // console.log(cw[0]);
-      cw[0].setAttribute("style", "min-height:" + sb[0].clientHeight + "px;");
-    }
-  },
+  mixins: [handlePage], // register mixin
+  methods: {},
   mounted() {
-    this.autoheight();
+    this.maxheight();
+    // $(".sidebar-menu > li.treeview.active").removeClass("active");
+    // .parent()
+    // .closest("li")
+    // .removeClass("menu-open");
   }
 };
 </script>

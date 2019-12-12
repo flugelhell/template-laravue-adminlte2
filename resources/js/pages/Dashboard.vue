@@ -639,6 +639,8 @@
   <!-- /.content-wrapper -->
 </template>
 <script>
+import { handlePage } from "../mixins/handlePage.js"; // import mixin
+
 // Vue
 export default {
   mounted() {

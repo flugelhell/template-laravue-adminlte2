@@ -7,6 +7,7 @@ import Login from './pages/Login.vue'
 import Dashboard from './pages/Dashboard.vue'
 import About from './pages/About.vue'
 import Master_hw from './pages/hardware/Master_hw.vue'
+import Tes from './pages/About.vue'
 import Page404 from './pages/404.vue'
 
 Vue.use(Router)
@@ -38,9 +39,15 @@ const router = new Router({
             meta: { requiresAuth: true }
         },
         {
-            path: '/master-hw',
+            path: '/inventory/master-hw',
             name: 'master_hw',
             component: Master_hw,
+            meta: { requiresAuth: true },
+        },
+        {
+            path: '/tes',
+            name: 'tes',
+            component: Tes,
             meta: { requiresAuth: true }
         },
         {

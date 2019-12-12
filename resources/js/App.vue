@@ -31,6 +31,7 @@ import Header from "./components/Header.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Footer from "./components/Footer.vue";
 import ControlSidebar from "./components/ControlSidebar.vue";
+
 export default {
   computed: {
     ...mapState(["token"]),
@@ -41,6 +42,12 @@ export default {
     "app-sidebar": Sidebar,
     "app-footer": Footer,
     "app-control-sidebar": ControlSidebar
+  },
+  watch: {
+    $route(to, from) {}
+  },
+  mounted() {
+    Pace.start();
   }
 };
 </script>

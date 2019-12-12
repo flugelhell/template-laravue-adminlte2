@@ -1,4 +1,7 @@
 defaultOptions =
+  # Should the page be hidden until it's done loading?
+  hidePage: false
+
   # How long should it take for the bar to animate to a new
   # point after receiving it
   catchupTime: 100
@@ -245,9 +248,7 @@ class Bar
 
     el = @getElement()
 
-    transform = "translate3d(#{ @progress }%, 0, 0)"
-    for key in ['webkitTransform', 'msTransform', 'transform']
-      el.children[0].style[key] = transform
+    el.children[0].style.width = "#{ @progress }%"
 
     if not @lastRenderedProgress or @lastRenderedProgress|0 != @progress|0
       # The whole-part of the number has changed
@@ -288,16 +289,10 @@ _WebSocket = window.WebSocket
 extendNative = (to, from) ->
   for key of from::
     try
-      if not to[key]? and typeof from[key] isnt 'function'
-        if typeof Object.defineProperty is 'function'
-          Object.defineProperty(to, key, {
-             get: ->
-                 return from::[key];
-              ,
-              configurable: true,
-              enumerable: true })
-        else
-          to[key] = from::[key]
+      val = from::[key]
+
+      if not to[key]? and typeof val isnt 'function'
+        to[key] = val
     catch e
 
 ignoreStack = []
@@ -337,7 +332,7 @@ class RequestIntercept extends Events
         if shouldTrack(type)
           @trigger 'request', {type, url, request: req}
 
-        _open.apply req, arguments
+        _open.call req, type, url, async
 
     window.XMLHttpRequest = (flags) ->
       req = new _XMLHttpRequest(flags)
@@ -727,8 +722,18 @@ Pace.go = ->
     else
       enqueueNextFrame()
 
+paceHideStyle = null
 Pace.start = (_options) ->
   extend options, _options
+
+  if options.hidePage
+    if not paceHideStyle
+      paceHideStyle = document.createElement 'style'
+      document.head.appendChild paceHideStyle
+
+    paceHideStyle.innerHTML = "body > *:not(.pace), body:before, body:after { -webkit-transition: opacity .4s ease-in-out; -moz-transition: opacity .4s ease-in-out; -o-transition: opacity .4s ease-in-out; -ms-transition: opacity .4s ease-in-out; transition: opacity .4s ease-in-out } body:not(.pace-done) > *:not(.pace), body:not(.pace-done):before, body:not(.pace-done):after { opacity: 0 !important }"
+  else
+    paceHideStyle?.innerHTML = ''
 
   Pace.running = true
 
@@ -745,7 +750,7 @@ Pace.start = (_options) ->
 
 if typeof define is 'function' and define.amd
   # AMD
-  define ['pace'], -> Pace
+  define -> Pace
 else if typeof exports is 'object'
   # CommonJS
   module.exports = Pace
